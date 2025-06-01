@@ -1,6 +1,6 @@
 class Solution {
     public List<List<String>> groupAnagrams(String[] strs) {
-
+        // For hash map string we can use array of alphabets count of each string
         HashMap<String, List<String>> stringMatch = new HashMap<String, List<String>>();
         List<List<String>> finalAns = new ArrayList<>();
 
