@@ -1,0 +1,30 @@
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        int[] distinctNum = new int[60];
+        int[] ansArray = new int[nums.length];
+        int product;
+
+        for (int num : nums) {
+            distinctNum[num + 30] = distinctNum[num + 30] + 1;
+        }
+
+        int ind = 0;
+
+        for (int i = 0; i < nums.length; i++) {
+            product = 1;
+            for (int j = 0; j < distinctNum.length; j++) {
+                if ((nums[i] + 30) == j) {
+                    if (distinctNum[j] - 1 > 0) {
+                        product = product * (int) Math.pow(j - 30, distinctNum[j] - 1);
+                    }
+                } else {
+                    product = product * (int) Math.pow(j - 30, distinctNum[j]);
+                }
+            }
+            ind++;
+            ansArray[i] = product;
+        }
+
+        return ansArray;
+    }
+}
